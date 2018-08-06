@@ -1,0 +1,175 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Styles for cards */
+
+.releases {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  width: 100%;
+}
+
+.releases select {
+  margin-left: auto;
+  font-size: 1.25rem;
+}
+
+.cards {
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  padding: 20px;
+  flex-basis: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 30px
+}
+
+.cards.loading:after {
+  content: "Loading Releases…";
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  margin: 0 10px;
+  display: inline-block;
+  background: #eee;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+}
+
+
+/*
+ * Add Styles for Release Items below according to the mockup
+ */
+
+ .card {
+   position: relative;
+   padding: 15px;
+   width: 150px;
+   height: 150px;
+
+
+ }
+
+ .card img {
+   display: block;
+   width: 100%;
+   height: 100%;
+ }
+
+ /* I opted for transparent info, with hover.  I can change to transparent background, with text always showing, if you prefer */
+ .overlay {
+   position: absolute;
+   top: 100px;
+   bottom: 0;
+   left: 15px;
+   right: 0;
+   height: 65px;
+   width: 150px;
+   display: flex;
+   flex: row wrap;
+   justify-content: flex-end;
+   alighn-items: center;
+   opacity: 0;
+   transition: .5s ease;
+   background-color: rgba(255, 255, 255, .8);
+ }
+
+ /* mobile considerations for a hover free device, ipad and smaller*/
+ @media screen and (max-width: 770px) {
+   .overlay {
+     opacity: 1;
+   }
+ }
+ /* layout of info */
+ /* all of the info is a little different, I didn't know if you'd prefer all info on, making the font very small, and covering the majority of the album art.  I opted for ellipsis and max-width/height.  Additionaly, didn't know if I should add a tooltip on a delayed over.  I figured since user can click on card and go to page, it maybe wasn't necessary */
+ .title {
+   position: absolute;
+   top: 10px;
+   left: 0;
+   max-width: 100px;
+   height: 30px;
+   font-weight: 700;
+   word-wrap: break-word;
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+   margin:0;
+   padding: 2px;
+   }
+
+ .artist {
+   position: absolute;
+   max-width: 80px;
+   max-height: 30px;
+   top: 40px;
+   left: 0;
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+   font-weight: 100;
+   margin:0;
+   padding: 2px;
+   }
+
+ .year {
+   position: absolute;
+   max-width: 60px;
+   top: 10px;
+   left: 110px;
+   font-weight: 700;
+   margin:0;
+   padding: 2px;
+   }
+
+ .catno {
+   position: absolute;
+   max-width: 60px;
+   max-height: 30px;
+   top: 40px;
+   left: 90px;
+   font-weight: 400;
+   font-size: 10px;
+   margin:0;
+   padding: 2px;
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+   }
+
+ /* hover event */
+ .card:hover .overlay {
+   opacity: 1;
+ }
+ .card:hover {
+   cursor: pointer
+ }
